@@ -1,0 +1,168 @@
+body
+{
+    background-color: #BFB48F;
+    /* background-image: url('/img/background.png'); */
+    backdrop-filter: blur(2px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.navbar {
+    display: inline-block;
+    
+    display: flex;
+    overflow: hidden;
+    background-color: #333;
+
+  }
+
+.content {
+    display: flex;
+}
+.toc {
+    width: 200px;
+    margin-right: 20px;
+}
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+}
+.toc ul li {
+    margin-bottom: 10px;
+}
+.toc ul li a {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+.toc ul li a:hover {
+    text-decoration: underline;
+}
+.section {
+    margin-bottom: 50px;
+}
+  
+
+
+
+
+  
+  /* Стили для ссылок в меню */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Изменение цвета при наведении */
+  .navbar a:hover {
+    background-color: red;
+  }
+  
+  /* Контейнер для выпадающего меню */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Кнопка выпадающего меню */
+  .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+
+  }
+  
+  /* Выпадающее меню (скрыто по умолчанию) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Стили для ссылок в выпадающем меню */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Изменение цвета при наведении */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Показ выпадающего меню при нажатии */
+  .show {
+    display: block;
+  }
+
+.contener_writer{
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: #F2EFE9;
+    max-width: 500px;
+    max-height: 600px;
+    font-size: 17px;
+    color:#1a1110 ;
+    overflow: hidden;
+    border: 1px solid black;
+    
+
+}
+
+.contener_writer a
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 25px;   
+    text-align: center;
+    text-align: center;
+    color: #904E55;
+}
+
+hr {
+    border: 0;
+    height: 1px; 
+    background-color: black; 
+    width: 100%; 
+    position: relative; 
+    top: 25px; 
+}
+
+
+
+
+.img-writer {
+    max-width: 75px;
+    max-height: auto;
+    float: left;
+  object-fit: cover; /* Масштабирует изображение, сохраняя его пропорции */
+}
+
+.information_Writer
+{
+    text-align: justify;
+    margin: 0;
+    font-size: 19px;
+    color: #1a1110;
+}
+
+
