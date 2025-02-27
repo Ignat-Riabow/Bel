@@ -112,9 +112,9 @@ body
 
 .contener_writer{
     margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 10px;
-    padding-right: 5px;
+    
     background-color: #F2EFE9;
     max-width: 500px;
     max-height: 600px;
@@ -160,6 +160,7 @@ hr {
 
 .information_Writer
 {
+  padding-right: 5px;
     text-align: justify;
     margin: 0;
     font-size: 19px;
