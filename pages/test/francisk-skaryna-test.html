@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест с 5 вопросами</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .question { display: none; }
+        .question.active { display: block; }
+        .answers { list-style-type: none; padding: 0; }
+        .answers li { margin-bottom: 10px; }
+        .result { margin-top: 20px; font-weight: bold; }
+        button { margin-top: 20px; }
+        .home-link { margin-top: 20px; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Тест с 5 вопросами</h1>
+    <div id="quiz"></div>
+    <button onclick="nextQuestion()">Далее</button>
+    <div id="result" class="result"></div>
+    <a id="home-link" class="home-link" href="/index.html">Вернуться на главную</a>
+
+    <script>
+        const questions = [
+            { question: "Какой цвет является основным?", answers: ["Красный", "Зеленый", "Синий", "Желтый"], correct: 2 },
+            { question: "Что такое HTML?", answers: ["Язык разметки", "Язык программирования", "Стиль дизайна", "База данных"], correct: 0 },
+            { question: "Какое животное является млекопитающим?", answers: ["Крокодил", "Орёл", "Кит", "Змея"], correct: 2 },
+            { question: "Сколько планет в Солнечной системе?", answers: ["6", "7", "8", "9"], correct: 2 },
+            { question: "Столица Франции?", answers: ["Лондон", "Рим", "Париж", "Берлин"], correct: 2 }
+        ];
+
+        let currentQuestion = 0;
+
+        function renderQuiz() {
+            const quiz = document.getElementById('quiz');
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                if (index === 0) questionDiv.classList.add('active');
+                questionDiv.innerHTML = `<p>${q.question}</p>`;
+                const answersList = document.createElement('ul');
+                answersList.classList.add('answers');
+                q.answers.forEach((answer, i) => {
+                    const answerItem = document.createElement('li');
+                    answerItem.innerHTML = `<input type="radio" name="question${index}" value="${i}"> ${answer}`;
+                    answersList.appendChild(answerItem);
+                });
+                questionDiv.appendChild(answersList);
+                quiz.appendChild(questionDiv);
+            });
+        }
+
+        function nextQuestion() {
+            const selected = document.querySelector(`input[name="question${currentQuestion}"]:checked`);
+            if (!selected) {
+                alert("Пожалуйста, выберите ответ.");
+                return;
+            }
+            if (currentQuestion < questions.length - 1) {
+                document.querySelector(`.question:nth-child(${currentQuestion + 1})`).classList.remove('active');
+                currentQuestion++;
+                document.querySelector(`.question:nth-child(${currentQuestion + 1})`).classList.add('active');
+            } else {
+                submitQuiz();
+            }
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="question${index}"]:checked`);
+                if (selected && parseInt(selected.value) === q.correct) {
+                    score++;
+                }
+            });
+            document.getElementById('result').innerHTML = `Вы набрали ${score} из ${questions.length}`;
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('home-link').style.display = 'block';
+        }
+
+        renderQuiz();
+    </script>
+</body>
+</html>
